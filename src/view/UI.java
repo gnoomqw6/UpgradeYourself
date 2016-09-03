@@ -1,8 +1,6 @@
 package view;
 
-import actions.AddSkill;
-import actions.RemoveSkill;
-import actions.ShowStatistic;
+import actions.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -64,10 +62,10 @@ public class UI {
                 RemoveSkill.run(reader);
                 break;
             case "3":
-                System.out.println("3");
+                MarkFutureAsActive.run(reader);
                 break;
             case "4":
-                System.out.println("4");
+                MarkActiveAsCompleted.run(reader);
                 break;
             case "5":
                 exit = true;

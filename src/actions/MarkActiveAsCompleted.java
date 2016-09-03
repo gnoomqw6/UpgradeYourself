@@ -8,18 +8,18 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.List;
 
-public class MarkFutureAsActive {
+public class MarkActiveAsCompleted {
     private static AllSkills allSkills = Main.allSkills;
-    private static List<Skill> futureList = allSkills.getFutureSkills();
+    private static List<Skill> activeList = allSkills.getSkillInProgress();
     private static String choice;
 
     public static void run(BufferedReader reader) throws IOException {
-        if (futureList.isEmpty()) {
-            System.out.println("\nFuture list is empty. Nothing to mark.");
+        if (activeList.isEmpty()) {
+            System.out.println("\nActive list is empty. Nothing to mark.");
         } else {
-            System.out.println("Select skill to mark as active.");
-            for (int i = 0; i < futureList.size(); i++) {
-                System.out.println("\t" + i + " - " + futureList.get(i).getName());
+            System.out.println("Select skill to mark as completed.");
+            for (int i = 0; i < activeList.size(); i++) {
+                System.out.println("\t" + i + " - " + activeList.get(i).getName());
             }
             System.out.println("Please enter your choice: ");
             choice = reader.readLine();
@@ -27,10 +27,10 @@ public class MarkFutureAsActive {
 
             try {
                 int num = Integer.parseInt(choice);
-                Skill skill = futureList.get(num);
-                allSkills.getSkillInProgress().add(skill);
-                futureList.remove(num);
-                System.out.println("\nSkill " + skill.getName() + " was marked as active.");
+                Skill skill = activeList.get(num);
+                allSkills.getCompletedSkills().add(skill);
+                activeList.remove(num);
+                System.out.println("\nSkill " + skill.getName() + " was marked as completed.");
             } catch (NumberFormatException e) {
                 System.out.println("\nIncorrect input.");
             } catch (IndexOutOfBoundsException e) {

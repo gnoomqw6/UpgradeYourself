@@ -13,7 +13,7 @@ public class AddSkill {
 
     public static void run(BufferedReader reader) throws IOException {
         System.out.print("\nEnter name of the skill: ");
-        skillName = reader.readLine();
+        skillName = reader.readLine().toUpperCase();
         System.out.println();
         allSkills.getFutureSkills().add(new Skill(skillName));
         allSkills.isEmpty = false;

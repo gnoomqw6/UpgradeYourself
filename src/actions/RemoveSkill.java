@@ -56,7 +56,7 @@ public class RemoveSkill {
                 choice = reader.readLine();
                 System.out.println();
                 if (choice.equalsIgnoreCase("y")) {
-                    list.remove(num);       //TODO chek allskills is empty
+                    list.remove(num);
                     System.out.println("\n" + skillToDelete + " was removed successfully.");
                 } else if (choice.equalsIgnoreCase("n")) {
                     System.out.println("\nOperation aborted.");
@@ -65,7 +65,7 @@ public class RemoveSkill {
                 }
             } catch (NumberFormatException e) {
                 System.out.println("\nIncorrect input!");
-            } catch (ArrayIndexOutOfBoundsException e) {
+            } catch (IndexOutOfBoundsException e) {
                 System.out.println("\nIncorrect input!");
             }
         }
