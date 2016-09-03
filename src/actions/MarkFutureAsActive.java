@@ -6,6 +6,7 @@ import runOperations.Main;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 public class MarkFutureAsActive {
@@ -28,6 +29,7 @@ public class MarkFutureAsActive {
             try {
                 int num = Integer.parseInt(choice);
                 Skill skill = futureList.get(num);
+                skill.setStartLearning(new Date());
                 allSkills.getSkillInProgress().add(skill);
                 futureList.remove(num);
                 System.out.println("\nSkill " + skill.getName() + " was marked as active.");

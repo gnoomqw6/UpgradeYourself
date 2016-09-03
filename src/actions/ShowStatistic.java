@@ -43,6 +43,13 @@ public class ShowStatistic {
                     System.out.println("\t" + skill.getName());
                 }
             }
+
+            int allCount = allSkills.getCompletedSkills().size() + allSkills.getFutureSkills().size()
+                    + allSkills.getSkillInProgress().size();
+            int completedCount = allSkills.getCompletedSkills().size();
+            System.out.println("\n______________________________");
+            System.out.printf("\nTotal progress: %d", completedCount * 100 / allCount);
+            System.out.println("%");
         }
     }
 }
