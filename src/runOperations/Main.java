@@ -10,7 +10,7 @@ public class Main {
         if (SkillsDeserialize.fileIsEmpty || SkillsDeserialize.noFile) {
             UI.firstStart();
         } else {
-
+            UI.normalStart();
         }
         SkillsSerialize.serializeSkills(allSkills);
     }

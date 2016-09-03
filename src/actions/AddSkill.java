@@ -16,6 +16,7 @@ public class AddSkill {
         skillName = reader.readLine();
         System.out.println();
         allSkills.getFutureSkills().add(new Skill(skillName));
+        allSkills.isEmpty = false;
         System.out.println("\nSkill '" + skillName + "' was added to the list.");
     }
 }

@@ -1,6 +1,7 @@
 package view;
 
 import actions.AddSkill;
+import actions.RemoveSkill;
 import actions.ShowStatistic;
 
 import java.io.BufferedReader;
@@ -12,8 +13,16 @@ public class UI {
     private static boolean exit = false;
 
     public static void firstStart() {
-        System.out.println("Hello, Sergey! You have no skills to learn.");
+        System.out.println("\nHello, Sergey! You have no skills to learn.");
         System.out.println("Follow me to fill the skill list.");
+
+        mainCycle();
+    }
+
+    public static void normalStart() {
+        System.out.println("\nHello, Sergey! It's a nice day today to learn something new.");
+        System.out.println("Here is your current statistic:\n");
+        ShowStatistic.run();
 
         mainCycle();
     }
@@ -36,7 +45,7 @@ public class UI {
         System.out.println("\t0 - show statistic");
         System.out.println("\t1 - add new skill");
         System.out.println("\t2 - remove skill");
-        System.out.println("\t3 - mark skill as active");   //TODO refactor current skill to list
+        System.out.println("\t3 - mark skill as active");
         System.out.println("\t4 - mark active skill as completed");
         System.out.println("\t5 - exit the program");
         System.out.print("\nPlease enter your choice: ");
@@ -52,7 +61,7 @@ public class UI {
                 AddSkill.run(reader);
                 break;
             case "2":
-                System.out.println("2");
+                RemoveSkill.run(reader);
                 break;
             case "3":
                 System.out.println("3");
