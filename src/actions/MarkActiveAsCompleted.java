@@ -28,6 +28,7 @@ public class MarkActiveAsCompleted {
             try {
                 int num = Integer.parseInt(choice);
                 Skill skill = activeList.get(num);
+                skill.setEndLearningDate();
                 allSkills.getCompletedSkills().add(skill);
                 activeList.remove(num);
                 System.out.println("\nSkill " + skill.getName() + " was marked as completed.");

@@ -1,12 +1,14 @@
 package model;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Skill implements Serializable{
     private String name;
-    private Date startLearning;
-    private Date endLearning;
+    private Date startLearningDate;
+    private Date endLearningDate;
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
 
     public Skill(String name) {
         this.name = name;
@@ -16,23 +18,33 @@ public class Skill implements Serializable{
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getStartLearningDate() {
+        return "Started: " + dateFormat.format(startLearningDate);
     }
 
-    public Date getStartLearning() {
-        return startLearning;
+    public void setStartLearningDate() {
+        startLearningDate = new Date();
     }
 
-    public void setStartLearning(Date startLearning) {
-        this.startLearning = startLearning;
+    public String getEndLearningDate() {
+        return "Finished: " + dateFormat.format(endLearningDate);
     }
 
-    public Date getEndLearning() {
-        return endLearning;
+    public void setEndLearningDate() {
+        this.endLearningDate = new Date();
     }
 
-    public void setEndLearning(Date endLearning) {
-        this.endLearning = endLearning;
+    public String getLearningTime() {
+        String result;
+        if (endLearningDate != null) {
+            long diff = endLearningDate.getTime() - startLearningDate.getTime();
+            long learningTime = diff / 86400000;
+            result = "Learning time: " + String.valueOf(learningTime) + " days";
+        } else {
+            long diff = new Date().getTime() - startLearningDate.getTime();
+            long learningTime = diff / 86400000;
+            result = "Learning time: " + String.valueOf(learningTime) + " days";
+        }
+        return result;
     }
 }
